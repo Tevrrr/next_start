@@ -1,0 +1,13 @@
+.postsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem;
+}
+.postLink{
+    max-width: 10rem;
+    width: 100%;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: .5rem;
+}
