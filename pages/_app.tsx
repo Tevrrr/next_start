@@ -1,11 +1,14 @@
 import '../styles/globals.scss'
 import NextNProgress from 'nextjs-progressbar';
+import { AppProps } from 'next/app';
 
-const MyApp =({ Component, pageProps }) => {
+
+
+const MyApp =({ Component, pageProps }:AppProps) => {
   return (
 		<>
 			<NextNProgress
-				color='#29D'
+				color='#666'
 				startPosition={0.3}
 				stopDelayMs={200}
 				height={3}

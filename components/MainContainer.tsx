@@ -1,11 +1,13 @@
 /** @format */
 
+
 import Head from 'next/head';
 import Navbar from './Navbar';
 
 const MainContainer = ({ children, title='' }) => {
 	return (
-		<div>
+        <div>
+            
 			<Head>
 				
 				<title>{title}</title>

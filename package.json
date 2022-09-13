@@ -11,6 +11,7 @@
 		"mock": "json-server -w db.json -p 4200 -d 450"
 	},
 	"dependencies": {
+		"dotenv": "^16.0.2",
 		"next": "12.2.5",
 		"nextjs-progressbar": "^0.0.14",
 		"react": "18.2.0",
@@ -18,7 +19,11 @@
 		"sass": "^1.54.8"
 	},
 	"devDependencies": {
+		"@types/node": "^18.7.17",
+		"@types/react": "^18.0.19",
+		"concurrently": "^7.4.0",
 		"eslint": "8.23.0",
-		"eslint-config-next": "12.2.5"
+		"eslint-config-next": "12.2.5",
+		"typescript": "^4.8.3"
 	}
 }

@@ -1,15 +1,21 @@
 /** @format */
 
+import { NextPageContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import MainContainer from '../../components/MainContainer';
+import { MyPost } from '../../types/post';
 
-const Post = ({post}) => {
+interface PostPageProps {
+    post: MyPost
+}
+
+const Post = ({ post }: PostPageProps) => {
 	const router = useRouter();
 	return (
 		<MainContainer title={'Post ' + router.query.id}>
-            <h2>Post with id {router.query.id}</h2>
-            <p>{post.body}</p>
+			<h2>Post with id {router.query.id}</h2>
+			<p>{post.body}</p>
 			<button
 				onClick={() => {
 					router.push('/posts');
@@ -48,14 +54,17 @@ const Post = ({post}) => {
 // 	};
 // }
 
-export async function getServerSideProps(context) {
-    console.log(context);
-    const response = await fetch(
-		`http://localhost:4200/posts/${context.params.id}`
-	);
-    const post = await response.json();
+interface PostNextPageContext extends NextPageContext{
+    query: {
+        id: string
+    }
+}
+
+export async function getServerSideProps({ query }: PostNextPageContext) {
+	const response = await fetch(`${process.env.API_URL}/posts/${query.id}`);
+	const post: MyPost = await response.json();
 	return {
-		props: { post }, 
+		props: { post },
 	};
 }
 
